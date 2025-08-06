@@ -1,4 +1,4 @@
-# Redpanda Connect Iceberg Output Plugin
+# Redpanda Connect Plugin for Apache Iceberg
 
 This plugin provides a Redpanda Connect output that writes data to Apache Iceberg tables.
 
