@@ -1,0 +1,42 @@
+input:
+  stdin: {}
+
+output:
+  iceberg_advanced:
+    catalog_type: rest
+    catalog_properties:
+      uri: http://localhost:8181/api/catalog
+      token_type: bearer
+      credential: your-bearer-token
+      scope: your_scope
+      warehouse: my-warehouse
+    table_identifier: "my_namespace.my_table"
+    batch_size: 1000
+    schema_inference: false
+    explicit_schema:
+      fields:
+        - name: id
+          type: int32
+          required: true
+        - name: name
+          type: string
+          required: false
+        - name: email
+          type: string
+          required: false
+        - name: age
+          type: int32
+          required: false
+        - name: active
+          type: boolean
+          required: false
+        - name: created_at
+          type: timestamp
+          required: false
+    snapshot_properties:
+      operation: append
+      source: redpanda-connect
+      batch_id: "batch-001" 
+    azure_blob_storage:
+      storage_account: your_storage_account
+      storage_access_key: your_storage_access_key

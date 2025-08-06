@@ -1,0 +1,18 @@
+input:
+  stdin: {}
+
+output:
+  iceberg:
+    catalog_type: rest
+    catalog_properties:
+      uri: http://localhost:8181/api/catalog
+      token_type: bearer
+      credential: your-bearer-token
+      scope: your_scope
+      warehouse: my-warehouse
+    table_identifier: "my_namespace.my_table"
+    batch_size: 5
+    # Basic configuration - schema_inference defaults to true
+    snapshot_properties:
+      operation: append
+      source: redpanda-connect 
